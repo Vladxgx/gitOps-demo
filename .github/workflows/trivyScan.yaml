@@ -16,5 +16,7 @@ jobs:
           version: latest # or a specific version like 'v0.64.0'
           cache: true # or set to false, true by default
 
-      - name: Run Trivy scan
+      - name: Verify Trivy
         run: trivy --version
+      - name: Trivy Scan
+        run: trivy fs .
