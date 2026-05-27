@@ -6,16 +6,18 @@ on:
 jobs:
   hello:
     runs-on: ubuntu-latest
+    environment: Production
     steps:
       - name: Print message
-        run: echo "Hello GitHub Actions"
+        run: echo "Hello GitHub Actions in ${{ Vars.MY_ENV }}"
    
   build:
     runs-on: ubuntu-latest
+    environment: Development
     needs: hello
     steps:
       - name: build something
-        run: echo "build the hello"
+        run: echo "build the hello in ${{ Vars.MY_ENV }}"
 
   market:
     runs-on: ubuntu-latest
