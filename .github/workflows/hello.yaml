@@ -26,3 +26,14 @@ jobs:
         uses: actions/hello-world-javascript-action@main
         with:
           who-to-greet: Vlad
+  
+  slacknotif:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_MESSAGE: Done yo!
